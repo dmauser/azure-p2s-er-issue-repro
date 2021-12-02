@@ -1,14 +1,14 @@
 #Set parameters (modify for your needs)
 rg=p2s-lab2 #Resource Group Name
 location=eastus #Region
-mypip=$(curl -4 ifconfig.io/ip -s) #if you are deploying over Cloudshell set that manually mypip=
+mypip=$(curl -4 ifconfig.io/ip -s) #if you are deploying over Cloudshell set that manually mypip=1.1.1.1
 
 #Deploy base lab environment = Hub with ER and VPN Gateway + VM and two Spokes with one VM on each.
 echo "***  Note you will be prompted by username and password ***"
 echo "*** It will take around 30 minutes to finish the deployment ***"
 az group create --name $rg --location $location
 az deployment group create --name P2SRepro-$RANDOM --resource-group $rg \
---template-uri https://raw.githubusercontent.com/dmauser/azure-p2s-er-issue-repro/main/azuredeploy.json?token=AFZBGO6J7BIGI52SOWT6WQTBVAHBG \
+--template-uri https://raw.githubusercontent.com/dmauser/azure-p2s-er-issue-repro/main/azuredeploy.json \
 --parameters gatewaySku=VpnGw2 vpnGatewayGeneration=Generation2 Restrict_SSH_VM_AccessByPublicIP=$mypip
 
 # Configure P2S VPN on Azure VPN Gateway
@@ -28,4 +28,5 @@ az network vnet-gateway vpn-client generate --name $gwname --processor-architect
 vpnurl=$(az network vnet-gateway vpn-client show-url -g $rg -n $gwname -o tsv)
 echo "*** Copy $vpnurl to download client on P2S VPN client ***"
 
-#Install Certificate on P2SVPN Client
+
+
