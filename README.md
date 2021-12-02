@@ -74,21 +74,21 @@ Note: you can open a command prompt for each one of the commands and leave it ru
 
 -  HubVM
 
-   ping -t 10.0.0.4 
+   `ping -t 10.0.0.4`
 
-   psping -t 10.0.0.4:22
+   `psping -t 10.0.0.4:22`
 
 - Spoke1 VM
 
-   ping 10.0.1.4 -t 
-   
-   psping -t 10.0.1.4:22
+   `ping 10.0.1.4 -t`
+
+   `psping -t 10.0.1.4:22`
 
 - Spoke2 VM
 
-   ping -t 10.0.1.4 
+   `ping -t 10.0.1.4`
 
-   psping -t 10.0.1.4:22
+   `psping -t 10.0.1.4:22`
 
 Note: If you are using Windows 11 you can use Windows Terminal and Split screen to leave both commands above running.
 
