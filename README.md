@@ -51,11 +51,11 @@ You need to go over two steps to get your P2S VPN Client ready
 
 1) Install IKEv2 VPN Client
 
-Using VPN Client packet output URL from Cloud Shell.
+   Using VPN Client packet output URL from Cloud Shell.
 
-Extract the zip file and install VpnClientSetupAmd64.exe under WindowsAmd64 folder.
+   Extract the zip file and install VpnClientSetupAmd64.exe under WindowsAmd64 folder.
 
-Note: You may be prompted by Windows protected your PC. Click in More Info - set Run anyway.
+   Note: You may be prompted by Windows protected your PC. Click in More Info - set Run anyway.
 
 2) Run the following PowerShell script to install client Certificate
 
