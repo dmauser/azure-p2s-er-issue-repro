@@ -1,5 +1,5 @@
 #Set parameters (modify for your needs)
-rg=p2s-lab2 #Resource Group Name
+rg=p2s-er-repro #Resource Group Name
 location=eastus #Region
 mypip=$(curl -4 ifconfig.io/ip -s) #if you are deploying over Cloudshell set that manually mypip=1.1.1.1
 
@@ -27,6 +27,3 @@ az network vnet-gateway update -g $rg -n $gwname \
 az network vnet-gateway vpn-client generate --name $gwname --processor-architecture Amd64 --resource-group $rg 
 vpnurl=$(az network vnet-gateway vpn-client show-url -g $rg -n $gwname -o tsv)
 echo "*** Copy $vpnurl to download client on P2S VPN client ***"
-
-
-
