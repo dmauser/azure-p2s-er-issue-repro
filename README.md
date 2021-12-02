@@ -107,7 +107,7 @@ Note: you can open a command prompt for each one of the commands and leave it ru
 
 - Spoke1 VM
 
-   `ping 10.0.1.4 -t`
+   `ping -t 10.0.1.4`
 
    `psping -t 10.0.1.4:22`
 
@@ -139,7 +139,7 @@ Change the ASN to 65050
 
    `az network vnet-gateway update -g $rg -n $gwname --asn 65050`
 
-2) Check the status of psping connectivity over P2S and you may see connectivity failing. Ping (icmp) may fail and starts to work back fine. However you should see psping failing.
+2) Check the status of psping connectivity over P2S and you may see connectivity failing. Ping (icmp) may start fail during the ASN configuration but it may start to work back fine. However you should see psping failing.
 
 ![Connectivity failing](./media/issue.png)
 
