@@ -136,3 +136,13 @@ You can resolve the issue by either running one of the options below:
 2) Option 2: Delete ExpressRoute Gateway:
 
    `az network vnet-gateway delete -g $rg -n Az-Hub-ergw`
+
+## Clean up
+
+- Remove **p2s-er-repro** resource group via Portal or Cloud Shell
+
+  `az az group delete --name  p2s-er-repro`
+
+- Remove folder **azure-p2s-er-issue-repro** over Cloud Shell
+
+  `rm -rf azure-p2s-er-issue-repro`
