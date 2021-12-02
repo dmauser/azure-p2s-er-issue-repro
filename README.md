@@ -73,16 +73,22 @@ Connected P2S VPN and Check connectivity to Hub and Spoke VMs using ping and psp
 Note: you can open a command prompt for each one of the commands and leave it running.
 
 -  HubVM
-ping -t 10.0.0.4 
-psping -t 10.0.0.4:22
+
+   ping -t 10.0.0.4 
+
+   psping -t 10.0.0.4:22
 
 - Spoke1 VM
-ping 10.0.1.4 -t 
-psping -t 10.0.1.4:22
+
+   ping 10.0.1.4 -t 
+   
+   psping -t 10.0.1.4:22
 
 - Spoke2 VM
-ping -t 10.0.1.4 
-psping -t 10.0.1.4:22
+
+   ping -t 10.0.1.4 
+
+   psping -t 10.0.1.4:22
 
 Note: If you are using Windows 11 you can use Windows Terminal and Split screen to leave both commands above running.
 
@@ -92,7 +98,7 @@ Change the ASN to 65050
 
 1) Return to Cloud shell and run the following command:
 
-  `az network vnet-gateway update -g $rg -n $gwname --asn 65050`
+   `az network vnet-gateway update -g $rg -n $gwname --asn 65050`
 
 2) Check the status of psping connectivity over P2S and you may see connectivity failing. Ping (icmp) maybe working fine.
 
@@ -102,8 +108,8 @@ You can resolve the issue by either running one of the options below:
 
 1) Option 1: Set VPN Gateway to 65515 = resolves the issue
 
-  `az network vnet-gateway update -g $rg -n $gwname --asn 65515`
+   `az network vnet-gateway update -g $rg -n $gwname --asn 65515`
 
 2) Option 2: Delete ExpressRoute Gateway:
 
-  `az network vnet-gateway delete -g $rg -n Az-Hub-ergw`
+   `az network vnet-gateway delete -g $rg -n Az-Hub-ergw`
