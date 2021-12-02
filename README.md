@@ -57,6 +57,17 @@ VPN Gateway will be deployed with ASN 65515 and later we will repro the issue by
 
 Deployment takes approximately 30 minutes.
 
+**Note:*** you can adjust deploy.sh script based in your requirements using vi or nano editor over Cloud Shell.
+
+Default parameters:
+
+```Bash
+#Set parameters (modify for your needs)
+rg=p2s-er-repro #Resource Group Name
+location=centralus #Region
+mypip=$(curl -4 ifconfig.io/ip -s) #if you are deploying over Cloudshell set that manually mypip=1.1.1.1
+```
+
 ### Configure P2S VPN Client
 
 You need to go over two steps to get your P2S VPN Client ready
