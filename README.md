@@ -70,7 +70,9 @@ mypip=$(curl -4 ifconfig.io/ip -s) #if you are deploying over Cloudshell set tha
 
 ### Configure P2S VPN Client
 
-You need to go over two steps to get your P2S VPN Client ready
+**Note:** Azure VM VPN Client is not provisioned as part of this lab. You have to deploy your own Windows VM.
+
+You need to go over two steps to get your P2S VPN Client ready:
 
 1) Install IKEv2 VPN Client
 
@@ -80,13 +82,15 @@ You need to go over two steps to get your P2S VPN Client ready
 
    Note: You may be prompted by Windows protected your PC. Click in More Info - set Run anyway.
 
-2) Run the following PowerShell script to install client Certificate
+2) Run the following PowerShell script to install client Certificate and psping Sysinternals tool to test connectivity over TCP port.
 
 ```powershell
 #Install Certificate on P2SVPN Client (To be executed over Powershell on P2S VPN)
 Start-BitsTransfer -source https://github.com/dmauser/azure-p2s-er-issue-repro/raw/main/cert/labuser.pfx -destination "$env:temp\labuser.pfx"
 $mypass="Password1234" | ConvertTo-SecureString -AsPlainText -Force
 Import-PfxCertificate -FilePath $env:temp\labuser.pfx -CertStoreLocation Cert:\LocalMachine\My -Password $mypass
+# Install sysinternals psping tool
+Start-BitsTransfer -source "https://live.sysinternals.com/psping.exe" -destination "$env:windir\system32\psping.exe"
 ```
 
 ## Validate connectivity
@@ -117,13 +121,21 @@ Note: If you are using Windows 11 you can use Windows Terminal and Split screen 
 
 ## Repro the issue
 
+Set variables:
+
+```Bash
+rg=p2s-er-repro #Resource Group Name
+gwname=Az-Hub-vpngw
+vnet=Az-Hub-vnet
+```
+
 Change the ASN to 65050
 
 1) Return to Cloud shell and run the following command:
 
    `az network vnet-gateway update -g $rg -n $gwname --asn 65050`
 
-2) Check the status of psping connectivity over P2S and you may see connectivity failing. Ping (icmp) maybe working fine.
+2) Check the status of psping connectivity over P2S and you may see connectivity failing. Ping (icmp) may fail and starts to work back fine. However you should see psping failing.
 
 ## Resolving the issue
 
