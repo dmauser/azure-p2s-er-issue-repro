@@ -1,5 +1,4 @@
-# azure-p2s-er-issue-repro
-
+# Azure P2S VPN connectivity issue repro
 
 ## Goal
 
