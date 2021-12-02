@@ -129,6 +129,14 @@ Change the ASN to 65050
 
 You can resolve the issue by either running one of the options below:
 
+Set variables:
+
+```Bash
+rg=p2s-er-repro #Resource Group Name
+gwname=Az-Hub-vpngw
+vnet=Az-Hub-vnet
+```
+
 1) Option 1: Set VPN Gateway to 65515 = resolves the issue
 
    `az network vnet-gateway update -g $rg -n $gwname --asn 65515`
@@ -141,7 +149,7 @@ You can resolve the issue by either running one of the options below:
 
 - Remove **p2s-er-repro** resource group via Portal or Cloud Shell
 
-  `az az group delete --name  p2s-er-repro`
+  `az group delete --name  p2s-er-repro`
 
 - Remove folder **azure-p2s-er-issue-repro** over Cloud Shell
 
