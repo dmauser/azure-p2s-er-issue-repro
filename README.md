@@ -119,6 +119,10 @@ Note: you can open a command prompt for each one of the commands and leave it ru
 
 Note: If you are using Windows 11 you can use Windows Terminal and Split screen to leave both commands above running.
 
+Expected working output is:
+
+![Connectivity working](./media/working.png)
+
 ## Repro the issue
 
 Set variables:
@@ -136,6 +140,8 @@ Change the ASN to 65050
    `az network vnet-gateway update -g $rg -n $gwname --asn 65050`
 
 2) Check the status of psping connectivity over P2S and you may see connectivity failing. Ping (icmp) may fail and starts to work back fine. However you should see psping failing.
+
+![Connectivity failing](./media/issue.png)
 
 ## Resolving the issue
 
