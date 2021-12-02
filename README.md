@@ -57,7 +57,7 @@ VPN Gateway will be deployed with ASN 65515 and later we will repro the issue by
 
 Deployment takes approximately 30 minutes.
 
-**Note:*** you can adjust deploy.sh script based in your requirements using vi or nano editor over Cloud Shell.
+**Note:** you can adjust deploy.sh script based in your requirements using vi or nano editor over Cloud Shell.
 
 Default parameters:
 
