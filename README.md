@@ -40,8 +40,20 @@ VPN Gateway will be deployed with ASN 65515 and later we will repro the issue by
   - Change directory:
   
   `cd ./azure-p2s-er-issue-repro`
+  
+  - Make deployment script executable:
 
-  - Run deploy.sh script
+  `chmod +xr deploy.sh`
+
+  - Run deployment script:
+  
+  `./deploy.sh`
+
+  - You will be prompted to input on two parameters:
+  
+    **VmAdminUsername** - set your own username
+
+    **VmAdminPassword** - set your own password  
 
 Deployment takes approximately 30 minutes.
 
