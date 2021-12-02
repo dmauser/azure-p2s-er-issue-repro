@@ -1,4 +1,4 @@
-# Azure P2S VPN connectivity issue repro
+# Azure P2S VPN connectivity instability (Repro Lab)
 
 ## Goal
 
